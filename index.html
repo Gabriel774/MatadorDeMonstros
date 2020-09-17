@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Matador de Monstros</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="vue.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+
+            <div class="box" id="player">
+                <h1>Jogador</h1>
+                <div class="barraProgresso">
+                    <div class="progresso" :style="{width: vida1 + '%'}"
+                        :class="{machucado: vida1 < 50 , ferido: vida1 < 20}"></div>
+                </div>
+                <h3>{{ vida1 }}% </h3>
+            </div>
+            <div class="box" id="monster">
+                <h1>Monstro</h1>
+                <div class="barraProgresso">
+                    <div class="progresso" :style="{width: vida2 + '%'}"
+                        :class="{machucado: vida2 < 50 , ferido: vida2 < 20}"></div>
+                </div>
+                <h3>{{ vida2 }}%</h3>
+            </div>
+
+        </div>
+        <div class="containerc" style="text-align: center;" :style="{display: mostrar}"><span
+                :class="{victory: res, defeat: !res}">{{ msg }}</span></div>
+        <div class="containerb" style="justify-content: space-evenly;">
+            <template v-if="!running">
+                <button class="btn primary" @click="start"> Iniciar Jogo</button>
+            </template>
+            <template v-else>
+                <button style="display: none;"></button>
+                <button class="btn primary" @click="attack" onclick="autoscroll()"><span class="iconify"
+                        data-icon="vaadin:sword" data-inline="true"></span> Ataque</button>
+                <button class="btn danger" :class="{cooldown: cooldown1 > 0}" @click="attackespec"
+                    onclick="autoscroll()"><span class="iconify" data-icon="ri:sword-line" data-inline="true"></span>
+                    Ataque Especial</button>
+                <button class="btn success" :class="{cooldown: cooldown2 > 0}" @click="heal"
+                    onclick="autoscroll()"><span class="iconify" data-icon="carbon:health-cross"
+                        data-inline="true"></span> Curar</button>
+                <button class="btn giveup" @click="running = false">Desistir</button>
+            </template>
+        </div>
+        <div class="containerc">
+            Vitorias: <span style="color: #66bb6a;">{{ vitorias }}</span> | Derrotas: <span
+                style="color:tomato">{{ derrotas }}</span>
+
+            <span style="float: right;">
+                <button @click="op = !op, altlog" style="border: solid 0px; outline: 0; background: transparent;">
+                    <span class="iconify" data-icon="bi:view-list" data-inline="true"></span>
+                </button>
+                <button @click="altlog = !altlog" style="border: solid 0px; outline: 0; background: transparent;"
+                    v-if="op">
+                    <span class="iconify" data-icon="ant-design:menu-outlined" data-inline="true"></span>
+                </button>
+            </span>
+        </div>
+
+        <div class="roll" id="log" v-show="!op">
+            <template v-for="(turn, i) in log">
+                <p class="logp2" v-if="(i+1)%2==0?true:false" :ind="i+1" par="sim">{{ turn }}</p>
+                <p v-else :ind="i+1" class="logp1" par="nao">{{ turn }}</p>
+            </template>
+        </div>
+        <section id="menu" v-show="altlog && op">
+            <button @click="altlog=false" style="border: solid 0px; outline: 0; background: transparent; float: right; margin: 15px;">
+                <span class="iconify" data-icon="cil:x" data-inline="false" data-width="30" data-height="30"></span>
+            </button>
+            <div class="roll" id="log2">
+                <template v-for="(turn, i) in log">
+                    <p class="logp2" v-if="(i+1)%2==0?true:false" :ind="i+1" par="sim">{{ turn }}</p>
+                    <p v-else :ind="i+1" class="logp1" par="nao">{{ turn }}</p>
+                </template>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

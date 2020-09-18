@@ -10,7 +10,7 @@ body {
 
 .container {
     width: 95%;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.144);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.144);
     margin: auto;
     margin-top: 20px;
     display: flex;
@@ -20,17 +20,17 @@ body {
 
 .containerb {
     width: 95%;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.144);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.144);
     margin: auto;
     margin-top: 20px;
     display: flex;
-    justify-content: space-around;
     padding: 20px;
+    text-transform: uppercase;
 }
 
 .containerc {
     width: 95%;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.144);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.144);
     margin: auto;
     margin-top: 20px;
     padding: 20px;
@@ -47,7 +47,7 @@ body {
 
 .barraProgresso {
     height: 30px;
-    border: 1px solid black;
+    border: 1px solid rgb(46, 46, 46);
     border-radius: 30px;
     width: 100%;
     margin: auto;
@@ -58,7 +58,7 @@ body {
 .progresso {
     height: 30px;
     border-radius: 1 ;
-    background: #4caf50;
+    background: #56cf5a;
     z-index: 0;
    
 }
@@ -71,6 +71,7 @@ body {
     background: transparent;
     border-radius: 0;
     transition: all .1s;
+    text-transform: uppercase;
 }
 
 .primary {
@@ -120,26 +121,28 @@ body {
 }
 
 .giveup {
-    border-color: grey;
-    color: grey;
+    border-color: #90a4ae;
+    color:#90a4ae;
 }
 
 .giveup:hover {
-    background-color: grey;
+    background-color:#90a4ae;
     color: white;
 }
 
 .giveup:active {
-    background-color: rgb(99, 99, 99);
+    background-color: #90a4ae;
     color: white;
 }
 
 .machucado {
-    background-color: gold;
+    background-color: #ffeb3b
+
+    ;
 }
 
 .ferido {
-    background-color: rgb(243, 60, 60);
+    background-color: #ef5350;
 }
 
 
@@ -246,11 +249,6 @@ body {
     background-color: rgba(153, 153, 153, 0.651);
 }
 
-.cooldown {
-    color: grey;
-    border-color: grey;
-}
-
 #menu {
     position: absolute;
     top: 30px;
@@ -260,4 +258,19 @@ body {
     min-height: 300px;
     background-color: white;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.219);
+}
+
+.cooldown {
+    color: #d3d7d8;
+    border-color:#d3d7d8;
+}
+
+.cooldown:hover {
+    color: white;
+    background-color: #d3d7d8;
+}
+
+.cooldown:active {
+    color: white;
+    background-color: #c3c3c4;
 }

@@ -55,7 +55,7 @@ new Vue({
         },
         attack() {
             //ataque jogador
-            
+
             this.dice = this.random(7, 11)
             this.vida2 -= this.dice
             this.log.push(`O Jogador atacou causando ${this.dice} de dano!`)
@@ -75,7 +75,7 @@ new Vue({
                 this.dice = this.random(13, 16)
                 this.vida2 -= this.dice
                 this.log.push(`O Jogador atacou causando ${this.dice} de dano!`)
-                this.check() 
+                this.check()
                 this.cooldown1 = 3
                 this.cooldown2--
                 if (!this.derrotado) {
@@ -86,30 +86,30 @@ new Vue({
 
                 }
             } else {
-                alert("Habilidade em cooldown")
+                alert(`Habilidade em cooldown, ${this.cooldown1} Rodadas até ser utilizavel.`)
             }
         },
 
         heal() {
             if (this.cooldown2 <= 0) {
-            if (this.vida1 >= 100) {
-                this.dice = 0
-            } else {
-                this.dice = this.random(15, 18)
-                this.vida1 += this.dice
                 if (this.vida1 >= 100) {
-                    this.vida1 = 100
+                    this.dice = 0
+                } else {
+                    this.dice = this.random(15, 18)
+                    this.vida1 += this.dice
+                    if (this.vida1 >= 100) {
+                        this.vida1 = 100
+                    }
                 }
-            }
-            this.log.push(`O Jogador se curou recuperando ${this.dice} de vida!`)
-            this.dice = this.random(9, 15)
-            this.vida1 -= this.dice
-            this.log.push(`O Monstro atacou causando ${this.dice} de dano!`)
-            this.check()
-            this.cooldown1--
-            this.cooldown2 = 2
-        } else {
-            alert ('Habilidade em cooldown')
+                this.log.push(`O Jogador se curou recuperando ${this.dice} de vida!`)
+                this.dice = this.random(9, 15)
+                this.vida1 -= this.dice
+                this.log.push(`O Monstro atacou causando ${this.dice} de dano!`)
+                this.check()
+                this.cooldown1--
+                this.cooldown2 = 2
+            } else {
+                alert(`Habilidade em cooldown, ${this.cooldown2} Rodadas até ser utilizavel.`)
             }
         }
 

@@ -49,7 +49,7 @@
                 <button class="btn success" :class="{cooldown: cooldown2 > 0}" @click="heal"
                     onclick="autoscroll()"><span class="iconify" data-icon="carbon:health-cross"
                         data-inline="true"></span> Curar</button>
-                <button class="btn giveup" @click="running = false">Desistir</button>
+                <button class="btn giveup" @click="[running = false, derrotas++]">Desistir</button>
             </template>
         </div>
         <div class="containerc">
@@ -74,7 +74,8 @@
             </template>
         </div>
         <section id="menu" v-show="altlog && op">
-            <button @click="altlog=false" style="border: solid 0px; outline: 0; background: transparent; float: right; margin: 15px;">
+            <button @click="altlog=false"
+                style="border: solid 0px; outline: 0; background: transparent; float: right; margin: 15px;">
                 <span class="iconify" data-icon="cil:x" data-inline="false" data-width="30" data-height="30"></span>
             </button>
             <div class="roll" id="log2">

@@ -86,7 +86,9 @@ new Vue({
 
                 }
             } else {
-                alert(`Habilidade em cooldown, ${this.cooldown1} Rodadas até ser utilizavel.`)
+                new quickal({
+                    title: "Habilidade em cooldown",
+                    message: `${this.cooldown1} Rodadas até ser utilizavel.`})
             }
         },
 
@@ -109,7 +111,10 @@ new Vue({
                 this.cooldown1--
                 this.cooldown2 = 2
             } else {
-                alert(`Habilidade em cooldown, ${this.cooldown2} Rodadas até ser utilizavel.`)
+                new quickal({
+                    title: "Habilidade em cooldown",
+                    message: `${this.cooldown2} Rodadas até ser utilizavel.`
+                })
             }
         }
 

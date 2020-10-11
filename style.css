@@ -16,6 +16,7 @@ body {
     display: flex;
     justify-content: space-around;
     padding: 20px;
+    border-radius: 10px;
 }
 
 .containerb {
@@ -26,6 +27,7 @@ body {
     display: flex;
     padding: 20px;
     text-transform: uppercase;
+    border-radius: 10px;
 }
 
 .containerc {
@@ -34,6 +36,7 @@ body {
     margin: auto;
     margin-top: 20px;
     padding: 20px;
+    border-radius: 10px;
 }
 
 .box {

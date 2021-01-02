@@ -1,0 +1,74 @@
+.divmessage {
+    position: fixed;
+    width: 65%;
+    height: 250px; /* you can edit the message height here! */
+    background-color: white;
+    top: 50px;
+    text-align: center;
+    animation-name: divmessagefade;
+    animation-duration: .5s;
+    padding: 50px;
+    border-radius: 10px;
+    font-size: 14pt;
+    pointer-events: all;
+    user-select: text;
+}
+
+#almaindiv {
+    display: flex;
+    justify-content: center;
+}
+
+.albtn {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0px;
+    outline: 0;
+    background-color: transparent;
+    padding: 7px;
+    width: 50px;
+    font-size: 10pt;
+    border-color: #29b6f6;
+    color: #29b6f6;
+    transition: all .2s;
+}
+
+.albtn:hover {
+    background-color: #29b6f6;
+    color: white;
+}
+
+.albtn:active {
+    background-color: #2b9ed3;
+}
+
+#backg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.301);
+}
+
+@media (max-width: 720px) {
+    .divmessage {
+        width: 75%;
+        font-size: 12pt;
+        padding: 20px;
+    }
+}
+
+@keyframes divmessagefade {
+    from {
+        top: 20px;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        bottom: 0px;
+    }
+}
